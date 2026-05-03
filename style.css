@@ -1,0 +1,24 @@
+/* Hide LinkedIn Home feed only when the extension is ON. */
+html.nolinkedinfeed-enabled body:has([data-view-name="feed-container"]) [data-view-name="feed-container"],
+html.nolinkedinfeed-enabled body:has(.scaffold-finite-scroll) .scaffold-finite-scroll,
+html.nolinkedinfeed-enabled body:has(.feed-shared-update-v2) .scaffold-finite-scroll {
+  display: none !important;
+}
+
+/* Small empty-state message so the page does not look broken. */
+html.nolinkedinfeed-enabled body:has([data-view-name="feed-container"]) main.scaffold-layout__main::before,
+html.nolinkedinfeed-enabled body:has(.scaffold-finite-scroll) main.scaffold-layout__main::before,
+html.nolinkedinfeed-enabled body:has(.feed-shared-update-v2) main.scaffold-layout__main::before {
+  content: "LinkedIn feed hidden";
+  display: block;
+  margin: 24px auto;
+  padding: 18px 20px;
+  max-width: 520px;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #111111;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
